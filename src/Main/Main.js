@@ -1,10 +1,19 @@
 import React from 'react';
 import backgroundImg from '../background.png';
 import './Main.css';
+import ZodiacCard from '../ZodiacCard/ZodiacCard.js';
+// import { zodiac } from '../data.js';
 
-export default function Main() {
+export default function Main({ zodiac }) {
   return (
     <main style={{ backgroundImage: `url(${backgroundImg})` }}>
+      {
+        zodiac.map((zodiac, i) => <ZodiacCard
+          // name={zodiac.name}
+          // dates={zodiac.dates}
+          {...zodiac}
+          key={zodiac.name + i} />)
+      }
       {/* import the ZodiacCard component */}
       {/* get the zodiac array from props */}
       {/* for each item in the `zodiacs` array props, render a ZodiacCard component, passing in the name and the dates as props to the ZodiacCard component */}
